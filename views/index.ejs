@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>Load a basic WebMap - 4.8</title>
+
+		<!--引用完整-->
+		<link rel="stylesheet" href="/css/mainpage.css" />
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/css/bootstrap.css" />
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-1.8.2.min.js"></script>
+
+		<!--Esrimap添加在线-->
+		<link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
+		<script src="https://js.arcgis.com/4.8/"></script>
+		
+		<!--手动添加CSS、JS-->
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+		
+		<!--<script type="text/javascript" src="js/mainpage.js"></script>-->
+		<script type="text/javascript" src="../server/db.js"></script>
+			
+		<!--飘雪花的背景-->
+		<script type="text/javascript" src="js/Load_flower_onload.js"></script>
+
+	</head>
+
+	<body>
+		<!--**********导航条********************************************************************-->
+		<!--导航条-->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<a href="#" class="navbar-brand">诗途</a>
+
+				<ul class="quick_menu nav navbar-nav">
+					<li class="user_fun">
+						<a href="#"><span class="glyphicon glyphicon-plane"></span> 我要学习啦</a>
+						<ul class="user_fun_sub">
+							<li>
+								<a href="#">唐</a>
+							</li>
+							<li>
+								<a href="#">宋</a>
+							</li>
+							<li>
+								<a href="#">元</a>
+							</li>
+							<li>
+								<a href="#">明</a>
+							</li>
+							<li>
+								<a href="#">清</a>
+							</li>
+						</ul>
+					</li>
+
+					<li class="user_fun">
+						<a href="#"><span class="glyphicon glyphicon-plane"></span> 按图索骥</a>
+						<ul class="user_fun_sub">
+							<li>
+								<a href="#">十大景点</a>
+							</li>
+							<li>
+								<a href="#">诗人路线</a>
+							</li>
+							<li>
+								<a href="#">最诗途</a>
+							</li>
+
+						</ul>
+					</li>
+
+					<li class="user_fun">
+						<a href="#"><span class="glyphicon glyphicon-plane"></span> 有趣好玩</a>
+						<ul class="user_fun_sub">
+							<li>
+								<a href="#">私人订制</a>
+							</li>
+							<li>
+								<a href="#">手电筒</a>
+							</li>
+							<li>
+								<a href="#">你猜还有什么？</a>
+							</li>
+
+						</ul>
+					</li>
+				</ul>
+
+				<form action="" class="navbar-form  navbar-left">
+					<input type="text" placeholder="请输入搜索内容" class="form-control" />
+					<button type="submit">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</form>
+				<a href="#" class="btn navbar-btn btn-primary btn-sm navbar-right">快速入门</a>
+				<div id="_poemSignUP" class="navbar-right">
+					<ul id="_ClickMe" class="nav navbar-nav">
+						<li>
+							<a id="Login_start_" href="#">登录</a>
+						</li>
+						<li>
+							<a id="Regist_start_" href="#">注册</a>
+						</li>
+					</ul>
+					<p class="navbar-text">
+						<a href="" class="navbar-link">你好, 甘甘</a>!</p>
+				</div>
+
+			</div>
+
+			</div>
+		</nav>
+
+		<!--显示地图-->
+		<div id="viewDiv" class="col-md-12"></div>
+		
+		<form id="info" action = "/textfid" method = "post">
+    		<span id="location"></span>
+    		<br>
+    		<span id="fid" name= "fid" ></span>
+    		<br>
+    		<br>
+    		<span id="textfid" name="textfid"><span>
+    	
+    		<div> <%= locals.data %> </div>
+		</form>
+		<div id = "newfiddiv" name = "newfiddiv"></div>
+
+		
+		
+
+		<!--**************************************遮罩Div****************************************-->
+		<!--遮罩-->
+		<div id="goodcover"></div>
+
+		<!--**************************************登录Div*********************************************************-->
+		<div id="code">
+
+			<center>
+				<div id='_start' class="bluePulse">
+
+					<!--右上角    X  （关闭按钮）-->
+					<div id='_close' style="display: none;">
+							<span class="close_btn"></span>
+					</div>
+					
+					<br /><br /><br /><br />
+					<!--登录框-->
+					<div id="login_container">
+						<div id="lab1">
+							<span id="lab_login">寻诗途，觅诗韵</span>
+							<span id="lab_toRegist">
+								&emsp;还没有账号&nbsp;
+								<span id='toRegist' style="color: #EB9316;cursor: pointer;">立即注册</span>
+							</span>
+						</div>
+						<div style="width:330px;">
+							<span id="lab_type1"><%= locals.message %></span>
+						</div>
+						<form class="form-group" action="/login" method="post">
+							<br />
+							<input type="text" class="form-control" placeholder="手机号/用户名" id="login_number"  name="username" value="username" />
+							<input type="password" class="form-control" placeholder="密码" id="login_password" name="password"/>
+							<button type="submit" value="登录" class="btn btn-success" id="login_btn" >登陆</button>
+							<button id="login_QQ" type="button" class="btn btn-info">
+								<img src="img/qq32.png" style="width:20px;margin-top:-4px;" />&emsp;QQ登录
+							</button>
+						</form>
+
+					</div>
+					
+					
+					
+					<!-- 会员注册 -->
+					<div id='regist_container' style="display: none;">
+						<div id="lab1">
+							<span id="lab_login">会员注册</span>
+							<span id="lab_toLogin">
+								&emsp;已有账号&nbsp;
+								<span id='toLogin' style="color: #EB9316;cursor: pointer;">立即登录</span>
+							</span>
+						</div>
+						
+						<div style="width:330px;">
+							<span id="lab_type2"><%= locals.message %></span>
+						</div>
+						
+						
+						<form id="form_container2" class="form-group" action="/signup" method="post" style="padding-top: 25px;">
+
+							<input type="text" class="form-control" value="admin" placeholder="用户名" id="regist_account" name="username">
+							<input type="password" class="form-control" placeholder="密码" id="regist_password1" name="password"/>
+							<input type="password" class="form-control" placeholder="确认密码" id="regist_password2" />
+							<button type="button" value="注册" class="btn btn-success" id="regist_btn" >注册</button>
+						</form>
+					</div>
+
+				</div>
+
+
+			</center>
+
+		</div>
+
+		<!--**************************************bubbleScroll右下角*********************************************************-->
+		<div class='bubbleScroll'>
+			<div class='bubbleScroll_inner'>
+				<a href='#' class='bubbleScroll_close_button'>x</a>
+				<p>
+					<h2>途说诗话</h2>
+					<a style="color:black;font-weight:bold;">李桂叶 孙鑫杰 <br/>甘婉依 刘冰洁</a>
+				</p>
+
+			</div>
+		</div>
+		<!--***********************************************************************************************-->
+<!--<input = "range"></>-->
+
+<script>
+	
+	var globalStore = {};
+    function queryDB(id){
+      alert("gogogo with id " + id);
+      //console.log("fid-ddddd==="+fid);
+      //connectPgWithPool() 
+    }
+    
+	require(
+		[
+			"esri/Map",
+			"esri/layers/FeatureLayer",
+			//"esri/symbols/PictureMarkerSymbol",
+			"esri/Graphic",
+			"esri/views/MapView",
+			"dojo/domReady!",
+		],
+		function(
+			Map, FeatureLayer, Graphic, MapView //PictureMarkerSymbol,
+		) {
+			
+			var layer1 = new FeatureLayer({
+				portalItem: {
+					id: "08e37515524644848e98784b4a1ee2fc"
+				},
+	
+				popupTemplate: {
+					title: "地点：{location}",
+					content: "fid:{FID}"
+				}
+				//popupEnabled: false
+	
+			});
+	
+			var map = new Map({
+				basemap: "topo",
+				layers: [layer1]
+			});
+	
+			/************************************************************
+			 * Set the WebMap instance to the map property in a MapView.
+			 ************************************************************/
+			var view = new MapView({
+				map: map,
+				container: "viewDiv",
+				zoom: 4,
+				center: [107, 35.5]
+			});
+	
+			//    view.ui.add("info", "top-left");
+			view.ui.add("info");
+			view.on("pointer-move", eventHandler);
+			view.on("pointer-down", eventHandler);
+	
+			function eventHandler(event) {
+				// the hitTest() checks to see if any graphics in the view
+				// intersect the given screen x, y coordinates
+				view.hitTest(event)
+					.then(getGraphics);
+			}
+	
+			function getGraphics(response) {
+				// the topmost graphic from the Layer1
+				// and display select attribute values from the
+				// graphic to the user
+				if(response.results.length) {
+					var graphic = response.results.filter(function(result) {
+						return result.graphic.layer === layer1;
+					})[0].graphic;
+	
+					var attributes = graphic.attributes;
+					var fid = attributes.fid;
+					console.log("fid==="+fid);
+					//--------------------------把参数传出到全局变量中--------------------------------------
+					globalStore.fid = fid;
+					console.log('globalStore', globalStore);
+					console.log("globalStore==="+globalStore);
+					//------调用查询函数-------
+					queryDB(fid);
+					
+					
+					var poemlcid = attributes.poemlcid;
+					var location = attributes.location;
+	
+					document.getElementById("info").style.visibility = "visible";
+					document.getElementById("location").innerHTML = location;
+					document.getElementById("fid").innerHTML = "FID " + fid;
+					//xianshifid(fid);
+					
+					layer1.renderer = renderer;
+					
+				}
+			}
+	
+		});
+</script>
+
+	</body>
+</html>

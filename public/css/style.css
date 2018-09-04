@@ -1,0 +1,668 @@
+html,
+
+
+
+
+/*body的样式**********************************************/
+
+body {
+	margin-top: 0px;
+	padding 0px;
+	height: 100%;
+	width: 100%;
+}
+#info {
+      background-color: black;
+      opacity: 0.75;
+      color: orange;
+      font-size: 18pt;
+      padding: 8px;
+      visibility: hidden;
+    }
+
+/*导航条样式************************************************/
+
+.navbar-inverse input[type="text"] {
+	background: #333;
+	border: none;
+	color: #999;
+}
+
+.navbar-inverse button[type="submit"] {
+	background: none;
+	border: none;
+	color: #999;
+}
+
+.navbar-inverse form {
+	position: relative;
+}
+
+.dropdown-menu a[type="text"] {
+	background: #333;
+	border: none;
+	color: #999;
+}
+
+
+/*下拉菜单栏显示************************************************/
+
+.quick_menu>li {
+	/*放下来的方式*/
+	display: inline-block;
+	/*放下来的方式更有弹性*/
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-ms-perspective: 1000px;
+}
+
+.quick_menu a,
+.quick_menu a:hover {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.quick_menu>li:hover .user_fun_sub {
+	opacity: 1;
+	-webkit-animation: turn 2s ease-in-out;
+	-moz-animation: turn 2s ease-in-out;
+	-ms-animation: turn 2s ease-in-out;
+	animation: turn 2s ease-in-out;
+	visibility: visible;
+}
+
+.user_icon img {
+	width: 30px;
+	height: 30px;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	vertical-align: middle;
+}
+
+.user_icon b {
+	position: absolute;
+	top: -8px;
+	left: -8px;
+	display: inline-block;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+	padding: 2px 5px;
+	line-height: 12px;
+	border-radius: 2px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	background-color: #ff8400;
+}
+
+.user_fun b {
+	position: absolute;
+	top: 8px;
+	padding-left: 2px;
+	font-weight: normal;
+	font-size: 22px;
+}
+
+.user_fun_sub {
+	position: absolute;
+	text-align: left;
+	line-height: 30px;
+	width: 125px;
+	padding: 5px 0;
+	border-radius: 5px;
+	background-color: #001013;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transform-origin: 50% 0%;
+	-moz-transform-origin: 50% 0%;
+	-ms-transform-origin: 50% 0%;
+	transform-origin: 50% 0%;
+}
+
+.user_fun_sub a {
+	display: block;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+	margin: 2px 5px 2px 5px;
+	padding-left: 5px;
+}
+
+.user_fun_sub a:hover {
+	border-radius: 3px;
+	box-shadow: 0 1px 0 #82c64f inset;
+	background-color: #4daf04;
+}
+
+.log_out a {
+	display: block;
+	line-height: 15px;
+	padding: 5px 20px;
+	margin-left: 40px;
+	border: 1px solid #33707b;
+	border-radius: 3px;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+.log_out a:hover {
+	text-shadow: 0 0 20px rgba(255, 255, 255, .9);
+}
+
+@-webkit-keyframes turn {
+	0% {
+		-webkit-transform: rotateX(90deg);
+	}
+	20% {
+		-webkit-transform: rotateX(-30deg) rotateY(10deg);
+	}
+	35% {
+		-webkit-transform: rotateX(20deg) rotateY(-3deg);
+	}
+	55% {
+		-webkit-transform: rotateX(-15deg) rotateY(8deg);
+	}
+	85% {
+		-webkit-transform: rotateX(20deg) rotateY(-2deg);
+	}
+	100% {
+		-webkit-transform: rotateX(0);
+	}
+}
+
+@-moz-keyframes turn {
+	0% {
+		-moz-transform: rotateX(90deg);
+	}
+	20% {
+		-moz-transform: rotateX(-30deg) rotateY(10deg);
+	}
+	35% {
+		-moz-transform: rotateX(20deg) rotateY(-3deg);
+	}
+	55% {
+		-moz-transform: rotateX(-15deg) rotateY(8deg);
+	}
+	85% {
+		-moz-transform: rotateX(20deg) rotateY(-2deg);
+	}
+	100% {
+		-moz-transform: rotateX(0);
+	}
+}
+
+@-ms-keyframes turn {
+	0% {
+		-ms-transform: rotateX(90deg);
+	}
+	20% {
+		-ms-transform: rotateX(-30deg) rotateY(10deg);
+	}
+	35% {
+		-ms-transform: rotateX(20deg) rotateY(-3deg);
+	}
+	55% {
+		-ms-transform: rotateX(-15deg) rotateY(8deg);
+	}
+	85% {
+		-ms-transform: rotateX(20deg) rotateY(-2deg);
+	}
+	100% {
+		-ms-transform: rotateX(0);
+	}
+}
+
+@keyframes turn {
+	0% {
+		transform: rotateX(90deg);
+	}
+	20% {
+		transform: rotateX(-30deg) rotateY(10deg);
+	}
+	35% {
+		transform: rotateX(20deg) rotateY(-3deg);
+	}
+	55% {
+		transform: rotateX(-15deg) rotateY(8deg);
+	}
+	85% {
+		transform: rotateX(20deg) rotateY(-2deg);
+	}
+	100% {
+		transform: rotateX(0);
+	}
+}
+
+
+/***********************************************************/
+
+
+/*地图显示Div************************************************/
+
+#viewDiv {
+	padding: 0;
+	margin-top: 50px;
+	height: 91.5%;
+	width: 100%;
+}
+
+
+/*遮罩Div***************************************************/
+
+#goodcover {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 108.4%;
+	background-color: black;
+	z-index: 1001;
+	-moz-opacity: 0.8;
+	opacity: 0.50;
+	filter: alpha(opacity=80);
+}
+
+#code {
+	width: 600px;
+	height: 500px;
+	padding: 10px;
+	position: absolute;
+	display: none;
+	left: 45%;
+	z-index: 1002;
+}
+
+
+/*登录小框子***************************************************/
+
+
+/*保证登录框 在 正下方*/
+
+* {
+	margin: 0 auto;
+}
+
+#_start {
+	/*position:absolute;*/
+	height: 0px;
+	width: 0px;
+	background-image: url(../img/background.jpg);
+	border-radius: 10px;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+}
+
+
+/******关闭按钮******/
+
+.close_btn {
+	display: block;
+	position: relative;
+	margin-top: 20px;
+	margin-left: -20px;
+	height: 30px;
+	width: 30px;
+}
+
+
+/*绘制上下2个白色长方形*/
+
+.close_btn::before,
+.close_btn::after {
+	content: '';
+	width: 30px;
+	height: 2px;
+	background: #FFF;
+	display: block;
+}
+
+.close_btn::before {
+	transform: rotate(45deg);
+}
+
+.close_btn::after {
+	transform: translateY(-2px) rotate(-45deg);
+}
+/******关闭按钮******/
+
+
+/*********************************登录边框Shaling***********************************************/
+
+@-webkit-keyframes bluePulse {
+	from {
+		-webkit-box-shadow: 0 0 18px #EAF9FE;
+	}
+	50% {
+		-webkit-box-shadow: 0 0 30px #2daebf;
+	}
+	- to {
+		-webkit-box-shadow: 0 0 18px #EAF9FE;
+	}
+}
+
+.bluePulse {
+	/*  动画名称、动画完成时间  */
+	-webkit-animation-name: bluePulse;
+	-webkit-animation-duration: 3s;
+	/*  重复动画  */
+	-webkit-animation-iteration-count: infinite;
+}
+
+
+/********************************************************************************/
+
+#_close {
+	position: relative;
+	float: right;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+}
+
+#close_gif {
+	position: relative;
+	margin-top: 10px;
+	margin-left: -12px;
+}
+
+#login_container,
+#regist_container {
+	width: 360px;
+	text-align: center;
+	display: none;
+	margin-top: 0px;
+}
+
+#lab1 {
+	width: 330px;
+	border-bottom: 1px solid #000000;
+	text-align: left;
+	font-family: '微软雅黑';
+}
+
+#lab_login {
+	font-size: 30px;
+	height: 40px;
+	color: #000000;
+}
+
+#lab_toRegist,
+#lab_toLogin {
+	font-size: 15px;
+	line-height: 55px;
+	float: right;
+	color: #000000;
+}
+
+#lab_type1,
+#lab_type2 {
+	font-size: 16px;
+	float: left;
+	color: #8C8C8C;
+}
+
+#login_number,
+#login_password {
+	height: 50px;
+	border-radius: 0;
+	margin-top: 10px;
+}
+
+
+/* 注册表单 开始 */
+
+#regist_account,
+#regist_password1,
+#regist_password2,
+#regist_phone,
+#regist_vcode {
+	height: 42px;
+	border-radius: 0;
+	margin-top: 5px;
+}
+
+#regist_vcode {
+	width: 200px;
+	display: inline-block;
+	float: left;
+}
+
+
+/* 注册表单 结束 */
+
+
+/*获取验证码*/
+
+#getVCode {
+	width: 125px;
+	height: 40px;
+	border-radius: 0;
+	margin-top: 6px;
+	float: right;
+}
+
+
+/*登陆按钮*/
+
+#login_btn {
+	float: left;
+	width: 100px;
+	height: 40px;
+	border-radius: 0;
+	margin-top: 20px;
+}
+
+
+/*注册按钮*/
+
+#regist_btn {
+	width: 330px;
+	height: 40px;
+	border-radius: 0;
+	margin-top: 20px;
+}
+
+
+/*记住密码，找回密码*/
+
+#rememberOrfindPwd {
+	display: inline-block;
+	height: 40px;
+	line-height: 70px;
+	margin-top: 15px;
+	float: right;
+}
+
+
+/*QQ登陆样式*/
+
+#login_QQ {
+	float: right;
+	width: 150px;
+	height: 40px;
+	border-radius: 0;
+	margin-top: 20px;
+}
+
+
+/*微博登陆样式*/
+
+#login_WB {
+	width: 150px;
+	height: 40px;
+	float: right;
+	border-radius: 0;
+}
+
+
+/*登陆表单容器*/
+
+#form_container1 {
+	width: 330px;
+	height: 240px;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+
+/*注册表单容器*/
+
+#form_container2 {
+	width: 330px;
+	height: 300px;
+}
+
+.bubbleScroll {
+	position: fixed;
+	right: -300px;
+	bottom: -300px;
+}
+
+.bubbleScroll_inner {
+	background-color: #FFFFFF;
+	border: 4px solid #000;
+	border-bottom: 0;
+	font-size: 12px;
+	height: 190px;
+	width: 190px;
+	padding: 45px;
+	box-shadow: -5px 3px 4px #BFBFBF;
+	position: relative;
+	font-family: Abel, Arial, Helvetica, sans-serif;
+	border-radius: 150px 150px 0 150px;
+	-moz-border-radius: 150px 150px 0 150px;
+	-webkit-border-radius: 150px 150px 0 150px;
+	text-align: center;
+}
+
+.bubbleScroll_inner p {
+	font-size: 19px;
+}
+
+a.bubbleScroll_close_button {
+	text-decoration: none;
+	color: black;
+	float: right;
+	font-size: 12px;
+}
+
+
+/*******************登录注册水文背景框子*************************/
+
+@keyframes move_wave {
+	0% {
+		transform: translateX(0) translateZ(0) scaleY(1)
+	}
+	50% {
+		transform: translateX(-25%) translateZ(0) scaleY(0.55)
+	}
+	100% {
+		transform: translateX(-50%) translateZ(0) scaleY(1)
+	}
+}
+
+.bgTop {
+	z-index: 15;
+	opacity: 0.5;
+}
+
+.bgMiddle {
+	z-index: 10;
+	opacity: 0.75;
+}
+
+.bgBottom {
+	z-index: 5;
+}
+
+.wave {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	background-repeat: repeat no-repeat;
+	background-position: 0 bottom;
+	transform-origin: center bottom;
+}
+
+.waveTop {
+	background-size: 50% 100px;
+}
+
+.waveAnimation .waveTop {
+	animation: move-wave 3s;
+	-webkit-animation: move-wave 3s;
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+.waveMiddle {
+	background-size: 50% 120px;
+}
+
+.waveAnimation .waveMiddle {
+	animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+	background-size: 50% 100px;
+}
+
+.waveAnimation .waveBottom {
+	animation: move_wave 15s linear infinite;
+}
+
+
+/*************************************************/
+
+
+/*********************************************************************************************/
+
+
+/*********右下角Scroll滚轮效果*********************************************************************/
+
+.script_option {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+
+/******bubbleScroll样式*******/
+
+.bubbleScroll {
+	position: fixed;
+	right: -300px;
+	bottom: -300px;
+}
+
+.bubbleScroll_inner {
+	background-color: #FFFFFF;
+	border: 4px solid #000;
+	border-bottom: 0;
+	font-size: 12px;
+	height: 190px;
+	width: 190px;
+	padding: 45px;
+	box-shadow: -5px 3px 4px #BFBFBF;
+	position: relative;
+	font-family: Abel, Arial, Helvetica, sans-serif;
+	border-radius: 150px 150px 0 150px;
+	-moz-border-radius: 150px 150px 0 150px;
+	-webkit-border-radius: 150px 150px 0 150px;
+	text-align: center;
+}
+
+.bubbleScroll_inner p {
+	font-size: 19px;
+}
+
+a.bubbleScroll_close_button {
+	text-decoration: none;
+	color: black;
+	float: right;
+	font-size: 12px;
+}
+
+
+/*********************************************************************************************/
